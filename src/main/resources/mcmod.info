@@ -1,9 +1,10 @@
 [
 {
-	"modid": "StorageDrawersNatura",
-	"name": "Storage Drawers: Natura Pack",
+	"modid": "${modId}",
+    "name": "${modName}",
 	"description": "Adds additional wood styles from the Natura mod.",
-	"version": "$version",
+	"version": "${modVersion}",
+    "mcversion": "${minecraftVersion}",
 	"credits": "By jaquadro",
 	"logoFile": "",
 	"url": "http://www.jaquadro.com/",
