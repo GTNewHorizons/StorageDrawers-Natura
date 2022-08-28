@@ -12,8 +12,7 @@ import com.jaquadro.minecraft.storagedrawers.packs.natura.StorageDrawersPack;
 import cpw.mods.fml.common.Loader;
 import net.minecraft.block.Block;
 
-public class RefinedRelocation
-{
+public class RefinedRelocation {
     public static Block fullDrawers1;
     public static Block fullDrawers2;
     public static Block fullDrawers4;
@@ -21,13 +20,12 @@ public class RefinedRelocation
     public static Block halfDrawers4;
     public static Block trim;
 
-    public static void init () {
+    public static void init() {
         IStorageDrawersApi api = StorageDrawersApi.instance();
-        if (api == null)
-            return;
+        if (api == null) return;
 
-        if (!Loader.isModLoaded("RefinedRelocation") || !api.userConfig().integrationConfig().isRefinedRelocationEnabled())
-            return;
+        if (!Loader.isModLoaded("RefinedRelocation")
+                || !api.userConfig().integrationConfig().isRefinedRelocationEnabled()) return;
 
         IPackBlockFactory factory = api.packFactory();
         IPackDataResolver resolver = StorageDrawersPack.instance.resolver;
@@ -71,8 +69,12 @@ public class RefinedRelocation
             factory.hideBlock(ModBlocks.getQualifiedName(trim));
         }
 
-        ModBlocks.addAlternativeTileEntityMappings(TileSortingDrawersStandard.class, ModBlocks.getQualifiedName(fullDrawers1),
-            ModBlocks.getQualifiedName(fullDrawers2), ModBlocks.getQualifiedName(fullDrawers4),
-            ModBlocks.getQualifiedName(halfDrawers2), ModBlocks.getQualifiedName(halfDrawers4));
+        ModBlocks.addAlternativeTileEntityMappings(
+                TileSortingDrawersStandard.class,
+                ModBlocks.getQualifiedName(fullDrawers1),
+                ModBlocks.getQualifiedName(fullDrawers2),
+                ModBlocks.getQualifiedName(fullDrawers4),
+                ModBlocks.getQualifiedName(halfDrawers2),
+                ModBlocks.getQualifiedName(halfDrawers4));
     }
 }

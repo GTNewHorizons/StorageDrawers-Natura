@@ -11,13 +11,11 @@ import com.jaquadro.minecraft.storagedrawers.block.tile.TileEntityDrawersStandar
 import com.jaquadro.minecraft.storagedrawers.packs.natura.StorageDrawersPack;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.registry.GameData;
+import java.util.Map;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 
-import java.util.Map;
-
-public class ModBlocks
-{
+public class ModBlocks {
     public static Block fullDrawers1;
     public static Block fullDrawers2;
     public static Block fullDrawers4;
@@ -25,10 +23,9 @@ public class ModBlocks
     public static Block halfDrawers4;
     public static Block trim;
 
-    public void init () {
+    public void init() {
         IStorageDrawersApi api = StorageDrawersApi.instance();
-        if (api == null)
-            return;
+        if (api == null) return;
 
         IPackBlockFactory factory = api.packFactory();
         IPackDataResolver resolver = StorageDrawersPack.instance.resolver;
@@ -65,17 +62,23 @@ public class ModBlocks
             factory.hideBlock(getQualifiedName(trim));
         }
 
-        addAlternativeTileEntityMappings(TileEntityDrawersStandard.class, getQualifiedName(fullDrawers1),
-            getQualifiedName(fullDrawers2), getQualifiedName(fullDrawers4),
-            getQualifiedName(halfDrawers2), getQualifiedName(halfDrawers4));
+        addAlternativeTileEntityMappings(
+                TileEntityDrawersStandard.class,
+                getQualifiedName(fullDrawers1),
+                getQualifiedName(fullDrawers2),
+                getQualifiedName(fullDrawers4),
+                getQualifiedName(halfDrawers2),
+                getQualifiedName(halfDrawers4));
     }
 
-    public static String getQualifiedName (Block block) {
+    public static String getQualifiedName(Block block) {
         return GameData.getBlockRegistry().getNameForObject(block);
     }
 
-    public static void addAlternativeTileEntityMappings (Class<? extends TileEntity> tileEntityClass, String... alternatives) {
-        Map<String, Class<?>> teMappings = ObfuscationReflectionHelper.getPrivateValue(TileEntity.class, null, "field_" + "145855_i", "nameToClassMap");
+    public static void addAlternativeTileEntityMappings(
+            Class<? extends TileEntity> tileEntityClass, String... alternatives) {
+        Map<String, Class<?>> teMappings = ObfuscationReflectionHelper.getPrivateValue(
+                TileEntity.class, null, "field_" + "145855_i", "nameToClassMap");
         for (String s : alternatives) {
             if (!teMappings.containsKey(s)) {
                 teMappings.put(s, tileEntityClass);
