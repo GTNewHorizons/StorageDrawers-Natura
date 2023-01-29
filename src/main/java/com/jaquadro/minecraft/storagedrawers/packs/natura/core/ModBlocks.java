@@ -1,5 +1,10 @@
 package com.jaquadro.minecraft.storagedrawers.packs.natura.core;
 
+import java.util.Map;
+
+import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntity;
+
 import com.jaquadro.minecraft.storagedrawers.api.IStorageDrawersApi;
 import com.jaquadro.minecraft.storagedrawers.api.StorageDrawersApi;
 import com.jaquadro.minecraft.storagedrawers.api.config.IBlockConfig;
@@ -9,13 +14,12 @@ import com.jaquadro.minecraft.storagedrawers.api.pack.IPackBlockFactory;
 import com.jaquadro.minecraft.storagedrawers.api.pack.IPackDataResolver;
 import com.jaquadro.minecraft.storagedrawers.block.tile.TileEntityDrawersStandard;
 import com.jaquadro.minecraft.storagedrawers.packs.natura.StorageDrawersPack;
+
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.registry.GameData;
-import java.util.Map;
-import net.minecraft.block.Block;
-import net.minecraft.tileentity.TileEntity;
 
 public class ModBlocks {
+
     public static Block fullDrawers1;
     public static Block fullDrawers2;
     public static Block fullDrawers4;
@@ -75,10 +79,10 @@ public class ModBlocks {
         return GameData.getBlockRegistry().getNameForObject(block);
     }
 
-    public static void addAlternativeTileEntityMappings(
-            Class<? extends TileEntity> tileEntityClass, String... alternatives) {
-        Map<String, Class<?>> teMappings = ObfuscationReflectionHelper.getPrivateValue(
-                TileEntity.class, null, "field_" + "145855_i", "nameToClassMap");
+    public static void addAlternativeTileEntityMappings(Class<? extends TileEntity> tileEntityClass,
+            String... alternatives) {
+        Map<String, Class<?>> teMappings = ObfuscationReflectionHelper
+                .getPrivateValue(TileEntity.class, null, "field_" + "145855_i", "nameToClassMap");
         for (String s : alternatives) {
             if (!teMappings.containsKey(s)) {
                 teMappings.put(s, tileEntityClass);
