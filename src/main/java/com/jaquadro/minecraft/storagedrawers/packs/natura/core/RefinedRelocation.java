@@ -9,8 +9,9 @@ import com.jaquadro.minecraft.storagedrawers.api.config.IUserConfig;
 import com.jaquadro.minecraft.storagedrawers.api.pack.BlockConfiguration;
 import com.jaquadro.minecraft.storagedrawers.api.pack.IPackBlockFactory;
 import com.jaquadro.minecraft.storagedrawers.api.pack.IPackDataResolver;
-import com.jaquadro.minecraft.storagedrawers.integration.refinedrelocation.*;
+import com.jaquadro.minecraft.storagedrawers.integration.refinedrelocation.TileSortingDrawersStandard;
 import com.jaquadro.minecraft.storagedrawers.packs.natura.StorageDrawersPack;
+
 import cpw.mods.fml.common.Loader;
 
 public class RefinedRelocation {

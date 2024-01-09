@@ -2,7 +2,9 @@ package com.jaquadro.minecraft.storagedrawers.packs.natura;
 
 import com.jaquadro.minecraft.storagedrawers.api.IStorageDrawersApi;
 import com.jaquadro.minecraft.storagedrawers.api.StorageDrawersApi;
-import com.jaquadro.minecraft.storagedrawers.packs.natura.core.*;
+import com.jaquadro.minecraft.storagedrawers.packs.natura.core.DataResolver;
+import com.jaquadro.minecraft.storagedrawers.packs.natura.core.ModBlocks;
+import com.jaquadro.minecraft.storagedrawers.packs.natura.core.RefinedRelocation;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
